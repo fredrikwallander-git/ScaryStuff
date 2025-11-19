@@ -1,0 +1,70 @@
+﻿using UnityEngine;
+using UnityEngine.AI;
+
+public class EnemyChaseState : EnemyState
+{
+    private readonly float chaseSpeed;
+    private NavMeshAgent agent;
+    private EnemyVision vision;
+    private Vector3 lastKnownPlayerPosition;
+    private bool hasSeenPlayer;
+
+    public EnemyChaseState(EnemyAI enemy, float chaseSpeed) : base(enemy)
+    {
+        this.chaseSpeed = chaseSpeed;
+        agent = enemy.GetComponent<NavMeshAgent>();
+        vision = enemy.GetComponent<EnemyVision>();
+
+        if (agent == null)
+            Debug.LogWarning("EnemyChaseState requires a NavMeshAgent.");
+        if (vision == null)
+            Debug.LogWarning("EnemyChaseState requires EnemyVision component.");
+    }
+
+    public override void Enter()
+    {
+        hasSeenPlayer = false;
+        if (vision != null)
+            lastKnownPlayerPosition = vision.lastKnownPlayerPosition;
+
+        if (agent != null)
+        {
+            agent.isStopped = false;
+            agent.speed = chaseSpeed;
+        }
+    }
+
+    public override void Tick()
+    {
+        if (agent == null || vision == null) return;
+
+        if (vision.playerInSight)
+        {
+            hasSeenPlayer = true;
+            lastKnownPlayerPosition = vision.lastKnownPlayerPosition;
+            agent.SetDestination(vision.player.position);
+        }
+        else if (hasSeenPlayer)
+        {
+            agent.SetDestination(lastKnownPlayerPosition);
+
+            if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+            {
+                enemy.ChangeState(enemy.idleState);
+            }
+        }
+        else
+        {
+            if (enemy.patrolWaypoints.Length > 0)
+                enemy.ChangeState(enemy.patrolState);
+            else
+                enemy.ChangeState(enemy.idleState);
+        }
+    }
+
+    public override void Exit()
+    {
+        if (agent != null)
+            agent.isStopped = true;
+    }
+}
