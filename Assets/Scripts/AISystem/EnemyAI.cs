@@ -17,17 +17,19 @@ public class EnemyAI : MonoBehaviour
 
     private EnemyState currentState;
 
+    // TODO: Add a state machine and list of used states to be able to add more generic implementations of enemies
     public EnemyIdleState idleState;
     public EnemyChaseState chaseState;
     public EnemyPatrolState patrolState;
 
     void Start()
     {
-        // TODO: Change to player in view instead of chase distance checks.
+        // Setup the states and give them their data they need to function
         idleState = new EnemyIdleState(this, idleDuration);
         chaseState = new EnemyChaseState(this, chaseSpeed);
         patrolState = new EnemyPatrolState(this, patrolWaypoints, patrolSpeed);
 
+        // Set the starting state
         if (patrolWaypoints.Length > 0)
             ChangeState(patrolState);
         else
@@ -46,6 +48,7 @@ public class EnemyAI : MonoBehaviour
         currentState?.Enter();
     }
 
+    // Helper function to calculate the distance to the player
     public float DistanceToPlayer()
     {
         if (player == null) return Mathf.Infinity;

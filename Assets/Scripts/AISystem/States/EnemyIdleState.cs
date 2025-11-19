@@ -23,6 +23,7 @@ public class EnemyIdleState : EnemyState
             enemy.ChangeState(enemy.chaseState);
         }
         
+        // Increment idle duration counter and change to patrolling if duration har surpassed the limit
         currentIdleDuration += Time.deltaTime;
         if (currentIdleDuration >= idleDuration)
         {

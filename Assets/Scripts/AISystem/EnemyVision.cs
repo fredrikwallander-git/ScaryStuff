@@ -34,6 +34,7 @@ public class EnemyVision : MonoBehaviour
             float angle = Vector3.Angle(transform.forward, directionToTarget);
             if (angle > viewAngle / 2f) continue;
 
+            // If nothing obstructs our view, we see the player
             if (!Physics.Raycast(transform.position + Vector3.up * 1.5f,
                                  directionToTarget.normalized,
                                  distance,
@@ -47,6 +48,7 @@ public class EnemyVision : MonoBehaviour
         }
     }
 
+    // Draw the vision as a sphere and cone to visualize how far the enemy sees
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = new Color(1f, 1f, 0f, 0.15f);

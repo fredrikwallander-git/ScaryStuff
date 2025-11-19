@@ -6,6 +6,7 @@ public class EnemyPatrolState : EnemyState
     private NavMeshAgent agent;
     private int currentWaypointIndex = 0;
 
+    // Waypoints for the enemy to patrol around
     private Vector3[] waypoints;
 
     public EnemyPatrolState(EnemyAI enemy, Vector3[] waypoints, float patrolSpeed) : base(enemy)
@@ -25,6 +26,7 @@ public class EnemyPatrolState : EnemyState
 
     public override void Enter()
     {
+        // Init the patrol state with the current waypoint index and set the speed
         if (agent != null && waypoints.Length > 0)
         {
             agent.isStopped = false;
@@ -43,6 +45,7 @@ public class EnemyPatrolState : EnemyState
             return;
         }
 
+        // When reached the waypoint, move onto next and loop around the list if at end of waypoints
         if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
             currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
