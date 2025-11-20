@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05556de4c1e84fdd9477e9d48448255c, type: 3}
+  m_Name: PatrollingFleeingEnemyConfig
+  m_EditorClassIdentifier: Assembly-CSharp::AISystemExpanded.Configuration.EnemyConfig
+  AttackCooldown: 1
+  WalkSpeed: 4
+  ChaseSpeed: 8
+  FleeSpeed: 12
+  MinFleeDistance: 12
+  MaxFleeDistance: 35
+  AwarenessRangeMultiplier: 1.15
+  ViewDistance: 10
+  ViewAngle: 125
+  MinIdleTime: 1.2
+  MaxIdleTime: 3.5
+  CanFlee: 1
+  AttackRange: 2
