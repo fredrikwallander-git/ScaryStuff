@@ -1,7 +1,9 @@
-﻿using DefaultNamespace.Builders;
+﻿using FactoryBuilderExample.Builders;
+using FactoryBuilderExample.ExampleAttachments;
+using FactoryBuilderExample.Weapons;
 using UnityEngine;
 
-namespace DefaultNamespace.Factories
+namespace FactoryBuilderExample.Factories
 {
 	// Weapon factory example
 	public class WeaponFactory

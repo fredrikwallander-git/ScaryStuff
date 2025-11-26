@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace FactoryBuilderExample.Weapons
 {
 	[CreateAssetMenu(fileName = "New WeaponConfig", menuName = "Weapons/Config")]
 	public class WeaponConfig : ScriptableObject

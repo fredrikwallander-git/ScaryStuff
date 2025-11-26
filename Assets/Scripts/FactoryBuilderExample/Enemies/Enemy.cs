@@ -1,7 +1,8 @@
-﻿using DefaultNamespace.Builders;
+﻿using FactoryBuilderExample.Builders;
+using FactoryBuilderExample.Weapons;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace FactoryBuilderExample.Enemies
 {
 	public class Enemy : MonoBehaviour
 	{

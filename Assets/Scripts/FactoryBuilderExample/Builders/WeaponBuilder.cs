@@ -1,4 +1,6 @@
-﻿namespace DefaultNamespace.Builders
+﻿using FactoryBuilderExample.Weapons;
+
+namespace FactoryBuilderExample.Builders
 {
 	// Example of a weapon builder class, can make other like a BulletBuilder for various kinds of bullet types etc
 	public class WeaponBuilder

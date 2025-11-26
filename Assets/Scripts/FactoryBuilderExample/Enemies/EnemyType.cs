@@ -1,4 +1,4 @@
-﻿namespace DefaultNamespace
+﻿namespace FactoryBuilderExample.Enemies
 {
 	public enum EnemyType
 	{

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DefaultNamespace
+namespace FactoryBuilderExample.Weapons
 {
 	public class Weapon
 	{

@@ -1,4 +1,6 @@
-﻿namespace DefaultNamespace.Factories
+﻿using FactoryBuilderExample.Weapons;
+
+namespace FactoryBuilderExample.ExampleAttachments
 {
 	public class ScopeAttachment : IWeaponAttachment {
 		float damageMultiplier = 1f;

@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using FactoryBuilderExample.Enemies;
+using UnityEngine;
 
-namespace DefaultNamespace.Factories
+namespace FactoryBuilderExample.Factories
 {
 	// Enemy factory example
 	public class EnemyFactory
