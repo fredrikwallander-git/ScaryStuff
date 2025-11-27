@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: New Conditional Weapon
   m_EditorClassIdentifier: Assembly-CSharp::ToolsPropertiesAndAttributes.Attributes.ConditionalWeapon
   weaponType: 0
+  weaponLevel: 5
+  isThrowable: 1
   maximumRange: 0
   projectileSpeed: 0
   swingArc: 0
+  extraDamage: 0
+  throwRange: 0
